@@ -17,7 +17,24 @@
         white-space: pre;
         text-overflow: ellipsis;
         overflow: hidden;
-        max-width: 400px;
+      }
+      #launch_wrapper{
+          width: 700px;
+      }
+      div[id*='launch']{
+          float: left;
+          width: 324px;
+          border: 1px solid red;
+      }
+      div[id*='wlaunch']{
+          width: 370px;
+          border: 1px solid green;
+          /*overflow: hidden;*/
+          float:left;
+      }
+      #wrapper_list{
+          border: 1px solid black;
+          overflow:  hidden;
       }
     </style>
 
@@ -28,8 +45,15 @@
       - [1]: https://developer.chrome.com/extensions/contentSecurityPolicy
      -->
     <script src="req_load.js"></script>
-    <button type="button">Request data</button>
+    <!-- <button type="button">Request data</button> -->
+    <div id=launch_wrapper>
     <div id="id01"></div>
+        <div id="wrapper_list"><div id="launch0"></div><div id="wlaunch0"></div></div>
+        <div id="wrapper_list"><div id="launch1"></div><div id="wlaunch1"></div></div>
+        <div id="wrapper_list"><div id="launch2"></div><div id="wlaunch2"></div></div>
+        <div id="wrapper_list"><div id="launch3"></div><div id="wlaunch3"></div></div>
+        <div id="wrapper_list"><div id="launch4"></div><div id="wlaunch4"></div></div>
+    </div>
   </head>
   <body>
     <div id="status"></div>

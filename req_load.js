@@ -1,12 +1,4 @@
-console.log("Heyoo")
-var el = document.getElementsByTagName("button")  // Cant find button id?
-console.log(el)
-if (el)
-{
-    console.log("Loaded element")
-    addEventListener("click", httpGetAsync);
-}
-
+httpGetAsync()
 
 function httpGetAsync()
 {
@@ -18,11 +10,20 @@ function httpGetAsync()
             var data = JSON.parse(xmlHttp.responseText)
             if (data)
             {
-                console.log(data)
-                console.log(data.count)
-                document.getElementById("id01").innerHTML = "Loaded " + data.count + " launches."
+                document.getElementById("id01").innerHTML = "<b>Loaded " + data.count + " launches:</b>"
+                printLaunches(data.launches)
             }
     }
     xmlHttp.open("GET", url, true); // true for asynchronous
     xmlHttp.send(null);
+}
+
+function printLaunches(launchArray)
+{
+    for(var i = 0; i < launchArray.length; i++)
+    {
+        console.log(launchArray[i])
+        document.getElementById("launch" + i).innerHTML = launchArray[i].name
+        document.getElementById("wlaunch" + i).innerHTML = "Window start: " + launchArray[i].windowstart
+    }
 }
