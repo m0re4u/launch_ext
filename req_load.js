@@ -25,7 +25,7 @@ function printLaunches(launchArray)
     for(var i = 0; i < launchArray.length; i++)
     {
         lobj = launchArray[i];
-        console.log(lobj);
+        // console.log(lobj);
         document.getElementById("zlaunch" + i).innerHTML = lobj.name;
         if (lobj.vidURL != null)
         {
@@ -41,6 +41,7 @@ function printLaunches(launchArray)
 }
 
 function addHTTP(url) {
+    // Adds 'http://' to a url
    if (!/^(f|ht)tps?:\/\//i.test(url)) {
       url = "http://" + url;
    }

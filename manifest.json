@@ -1,9 +1,9 @@
 {
   "manifest_version": 2,
 
-  "name": "A space launch calendar notification extension",
-  "description": "This extension shows upcoming launches",
-  "version": "0.1",
+  "name": "A space launch schedule overview",
+  "description": "This extension shows 5 upcoming launches",
+  "version": "0.2",
 
   "browser_action": {
     "default_icon": "rocket-16.png",
@@ -11,10 +11,8 @@
     "default_title": "Show launches!"
   },
   "permissions": [
-    "activeTab",
-    "tabs",
-    "https://ajax.googleapis.com/"
-    ],
+      "http://launchlibrary.net/"
+  ],
   "icons": {
       "16": "rocket-16.png",
       "48": "rocket-48.png",
