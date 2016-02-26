@@ -2,43 +2,61 @@ body {
     font-family: 'Roboto', sans-serif;
     font-size: 15px;
 }
+/* idk what this is*/
 #status {
   /* avoid an excessively wide status text */
   white-space: pre;
   text-overflow: ellipsis;
   overflow: auto;
 }
+/* Launch data table */
 #launch_wrapper{
     width: 700px;
     /*Quack quack*/
     border: 0px solid green;
 }
-#id01{
+/* Top most row of the launch table */
+#launch_header{
     height: 30px;
-    border: 1px solid yellow;
+    /*border: 3px solid yellow;*/
     font-size: 17px;
     font-style: oblique;
 }
+/* Overall cell */
 div[id*='launch']{
-    float: left;
-    width: 324px;
-    /*border: 1px solid red;*/
-    height:24px;
-    padding-left: 5px;
-    padding-top: 3px;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    margin-top: 8px;
+    margin-left: 6px;
 }
+/* Rocket | Company cell*/
+div[id*='zlaunch']{
+    float:left;
+    width: 320px;
+    /*border: 2px solid red;*/
+    height:24px;
+
+}
+/* Time of launch cell */
 div[id*='wlaunch']{
     width: 350px;
-    /*border: 1px solid blue;*/
+    /*border: 2px solid blue;*/
     float:left;
     height:24px;
 }
+
+/* One launch row with | Rocket | Time |*/
 #wrapper_list{
-    padding: 1px;
-    height:24px;
-    border: 1px solid black;
-    overflow: hidden;
-    vertical-align: middle;
+    height:36px;
+    border-bottom-style: solid;
+    border-bottom-width: 1px;
+    border-bottom-color: #757575
+}
+#wrapper_list:last-child{
+    height:36px;
+    border-bottom-style: none;
+    border-bottom-width: none;
 }
 #wrapper_list:hover{
     background-color: #EEEEEE;

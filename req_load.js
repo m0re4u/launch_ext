@@ -12,7 +12,7 @@ function httpGetAsync()
             var data = JSON.parse(xmlHttp.responseText);
             if (data)
             {
-                document.getElementById("id01").innerHTML = "<b>Loaded " + data.count + " launches:</b>";
+                document.getElementById("launch_header").innerHTML = "<b>Loaded " + data.count + " launches:</b>";
                 printLaunches(data.launches);
             }
     }
@@ -26,11 +26,11 @@ function printLaunches(launchArray)
     {
         lobj = launchArray[i];
         console.log(lobj);
-        document.getElementById("launch" + i).innerHTML = lobj.name;
+        document.getElementById("zlaunch" + i).innerHTML = lobj.name;
         if (lobj.vidURL != null)
         {
             document.getElementById("wlaunch" + i).innerHTML = "Window start: <a id=\"lbutton" + i + "\">" + lobj.windowstart + "</a>";
-            url = addHTTP(lobj.vidURL) 
+            url = addHTTP(lobj.vidURL)
             document.getElementById("lbutton" + i).href = url
             document.getElementById("lbutton" + i).target = "_blank"
             document.getElementById("wlaunch" + i).innerHTML.replace(' ', '/');  // #NoProblemo
