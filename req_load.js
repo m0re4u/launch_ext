@@ -1,7 +1,5 @@
 httpGetAsync();
 
-REQ_SIZE = 5;
-
 function httpGetAsync()
 {
     console.log("sending request");
