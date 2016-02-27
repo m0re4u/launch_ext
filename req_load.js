@@ -23,7 +23,7 @@ function printLaunches(launchArray)
     for(var i = 0; i < launchArray.length; i++)
     {
         lobj = launchArray[i];
-        // console.log(lobj);
+        console.log(lobj);
         document.getElementById("zlaunch" + i).innerHTML = lobj.name;
         if (lobj.vidURL != null)
         {

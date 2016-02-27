@@ -1,6 +1,7 @@
 body {
     font-family: 'Roboto', sans-serif;
     font-size: 15px;
+    color: #212121;
 }
 /* idk what this is*/
 #status {
@@ -13,14 +14,13 @@ body {
 #launch_wrapper{
     width: 700px;
     /*Quack quack*/
-    border: 0px solid green;
+    /*border: 0px solid green;*/
 }
 /* Top most row of the launch table */
 #launch_header{
     height: 30px;
     /*border: 3px solid yellow;*/
-    font-size: 17px;
-    font-style: oblique;
+    font-size: 15px;
 }
 /* Overall cell */
 div[id*='launch']{
@@ -51,12 +51,11 @@ div[id*='wlaunch']{
     height:36px;
     border-bottom-style: solid;
     border-bottom-width: 1px;
-    border-bottom-color: #757575
+    border-bottom-color: #E0E0E0;
 }
 #wrapper_list:last-child{
     height:36px;
     border-bottom-style: none;
-    border-bottom-width: none;
 }
 #wrapper_list:hover{
     background-color: #EEEEEE;
