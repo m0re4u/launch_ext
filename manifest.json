@@ -11,7 +11,8 @@
     "default_title": "Show launches!"
   },
   "permissions": [
-      "http://launchlibrary.net/"
+      "http://launchlibrary.net/",
+      "notifications"
   ],
   "icons": {
       "16": "rocket-16.png",
