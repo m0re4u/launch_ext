@@ -22,22 +22,25 @@ function printLaunches(launchArray)
 {
     for(var i = 0; i < launchArray.length; i++)
     {
-        lobj = launchArray[i];
+        var lobj = launchArray[i];
         console.log(lobj);
         var deadline = lobj.windowstart;
         document.getElementById("zlaunch" + i).innerHTML = lobj.name;
         if (lobj.vidURL != null)
         {
             // Get a link to stream if available
-            document.getElementById("wlaunch" + i).innerHTML = "Window start: <a id=\"lbutton" + i + "\">" + deadline + "</a>" + " | <span id=\"cdown\">" + getTimeRemaining(deadline) + "</span>";
+            document.getElementById("wlaunch" + i).innerHTML = "Window start: <a id=\"lbutton" + i + "\">" + deadline + "</a>" + " | <span id=\"cdown" + i + "\"></span>";
             url = addHTTP(lobj.vidURL)
             document.getElementById("lbutton" + i).href = url
             document.getElementById("lbutton" + i).target = "_blank"
             document.getElementById("wlaunch" + i).innerHTML.replace(' ', '/');  // #NoProblemo
+            getTimeRemaining(deadline, i);
         } else {
-            document.getElementById("wlaunch" + i).innerHTML = "Window start: " + deadline + " | <span id=\"cdown\">" + getTimeRemaining(deadline) + "</span>";
+            document.getElementById("wlaunch" + i).innerHTML = "Window start: " + deadline + " | <span id=\"cdown" + i + "\"></span>";
+            getTimeRemaining(deadline, i);
         }
     }
+    setTimeout(updateCountdown(launchArray), 1000);
 }
 
 function addHTTP(url) {
@@ -48,10 +51,19 @@ function addHTTP(url) {
    return url;
 }
 
-function getTimeRemaining(endtime){
+function getTimeRemaining(endtime, i){
+  console.log("Updated countdown");
   var t = Date.parse(endtime) - Date.parse(new Date());
   var seconds = Math.floor( (t/1000) % 60 );
   var minutes = Math.floor( (t/1000/60) % 60 );
   var hours = Math.floor( (t/(1000*60*60)));
-  return "" + hours + ":" + minutes + ":" + seconds
+  var clockString = "" + hours + ":" + minutes + ":" + seconds
+  console.log("cdown" + i);
+  document.getElementById("cdown" + i).innerHTML = clockString;
+}
+
+function updateCountdown(launchArray){
+    for (var i = 0; i < launchArray.length; i++) {
+        getTimeRemaining(launchArray[i].windowstart, i);
+    }
 }
