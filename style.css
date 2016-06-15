@@ -13,12 +13,12 @@ body {
 /* Launch data table */
 #launch_wrapper {
     width: 700px;
-    border: 1px solid green;
+    /*border: 1px solid green;*/
 }
 /* Top most row of the launch table */
 #launch_header {
     height: 30px;
-    border: 1px solid yellow;
+    /*border: 1px solid yellow;*/
     font-size: 15px;
 }
 #cdown {
@@ -36,16 +36,20 @@ div[id*='launch']{
 div[id*='zlaunch']{
     float:left;
     width: 260px;
-    border: 1px solid red;
+    /*border: 1px solid red;*/
     height:24px;
 
 }
 /* Time of launch cell */
 div[id*='wlaunch']{
     width: 400px;
-    border: 1px solid blue;
+    /*border: 1px solid blue;*/
     float:left;
     height:24px;
+}
+
+span[id*='cdown']{
+    float: right;
 }
 
 /* One launch row with | Rocket | Time |*/
