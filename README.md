@@ -3,8 +3,6 @@
 Extension icon taken from the [octicon](https://octicons.github.com/) set
 
 ### Stuff I want to add in the future:
- - Rocket | agency/company nicely formatted
- - countdown
+ - countdown(now make it live..)
  - notifications
- - filters?
- - better design..
+ - show current timezone
