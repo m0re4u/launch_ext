@@ -12,6 +12,7 @@ function httpGetAsync()
             {
                 document.getElementById("launch_header").innerHTML = "<b>Loaded " + data.count + " launches:</b>";
                 printLaunches(data.launches);
+                setInterval(function(){updateCountdown(data.launches);}, 1000)
             }
     }
     xmlHttp.open("GET", url, true); // true for asynchronous
@@ -40,7 +41,6 @@ function printLaunches(launchArray)
             getTimeRemaining(deadline, i);
         }
     }
-    setTimeout(updateCountdown(launchArray), 1000);
 }
 
 function addHTTP(url) {
@@ -52,13 +52,14 @@ function addHTTP(url) {
 }
 
 function getTimeRemaining(endtime, i){
-  console.log("Updated countdown");
   var t = Date.parse(endtime) - Date.parse(new Date());
   var seconds = Math.floor( (t/1000) % 60 );
   var minutes = Math.floor( (t/1000/60) % 60 );
   var hours = Math.floor( (t/(1000*60*60)));
+  // Prepend 0 to numbers lower than 10
+  seconds = ('0' + seconds).slice(-2)
+  minutes = ('0' + minutes).slice(-2)
   var clockString = "" + hours + ":" + minutes + ":" + seconds
-  console.log("cdown" + i);
   document.getElementById("cdown" + i).innerHTML = clockString;
 }
 
