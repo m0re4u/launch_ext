@@ -27,17 +27,17 @@ function printLaunches(launchArray)
         console.log(lobj);
         var deadline = lobj.windowstart;
         document.getElementById("zlaunch" + i).innerHTML = lobj.name;
-        if (lobj.vidURL != null)
+        if (lobj.vidURL != null && lobj.vidURL != "")
         {
             // Get a link to stream if available
-            document.getElementById("wlaunch" + i).innerHTML = "Window start: <a id=\"lbutton" + i + "\">" + deadline + "</a>" + " | <span id=\"cdown" + i + "\"></span>";
+            document.getElementById("wlaunch" + i).innerHTML = "Window start: <a id=\"lbutton" + i + "\">" + deadline + "</a> | <span id=\"cdown" + i + "\"></span>";
             url = addHTTP(lobj.vidURL)
             document.getElementById("lbutton" + i).href = url
             document.getElementById("lbutton" + i).target = "_blank"
             document.getElementById("wlaunch" + i).innerHTML.replace(' ', '/');  // #NoProblemo
             getTimeRemaining(deadline, i);
         } else {
-            document.getElementById("wlaunch" + i).innerHTML = "Window start: " + deadline + " | <span id=\"cdown" + i + "\"></span>";
+            document.getElementById("wlaunch" + i).innerHTML = "Window start: <span id=\"lbutton" + i + "\">" + deadline + "</span> | <span id=\"cdown" + i + "\"></span>";
             getTimeRemaining(deadline, i);
         }
     }

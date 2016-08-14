@@ -24,6 +24,7 @@ body {
 #cdown {
     font-size: 10px;
 }
+
 /* Overall cell */
 div[id*='launch']{
     white-space: nowrap;
