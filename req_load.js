@@ -1,3 +1,5 @@
+var countryConvert = {"USA" : "us", "FRA":"europeanunion", "IND":"in"}
+
 httpGetAsync();
 
 function httpGetAsync()
@@ -36,7 +38,7 @@ function printLaunches(launchArray)
             deadline_str = "TBD";
         }
         // Print the name of the launch
-        document.getElementById("zlaunch" + i).innerHTML = lobj.name;
+        document.getElementById("zlaunch" + i).innerHTML = insertCountryFlag(lobj.location.countryCode) + "&ensp;" + lobj.name;
 
         // Get a link to stream if available
         if (lobj.vidURL != null && lobj.vidURL != "")
@@ -89,5 +91,11 @@ function getTimeRemaining(endtime, i){
 function updateCountdown(launchArray){
     for (var i = 0; i < launchArray.length; i++) {
         getTimeRemaining(launchArray[i].netstamp, i);
+    }
+}
+
+function insertCountryFlag(countryAbbrev){
+    if(countryAbbrev in countryConvert){
+        return "<img src=\"flags/" + countryConvert[countryAbbrev] + ".png\">"
     }
 }

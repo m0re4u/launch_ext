@@ -36,14 +36,14 @@ div[id*='launch']{
 /* Rocket | Company cell*/
 div[id*='zlaunch']{
     float:left;
-    width: 260px;
+    width: 320px;
     /*border: 1px solid red;*/
     height:24px;
 
 }
 /* Time of launch cell */
 div[id*='wlaunch']{
-    width: 400px;
+    width: 350px;
     /*border: 1px solid blue;*/
     float:left;
     height:24px;
