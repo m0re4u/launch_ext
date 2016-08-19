@@ -3,6 +3,6 @@
 Extension icon taken from the [octicon](https://octicons.github.com/) set
 
 ### Stuff I want to add in the future:
- - countdown(now make it live..)
+ - Nation of origin flags 
  - notifications
- - show current timezone
+ - show current timezone(?)
