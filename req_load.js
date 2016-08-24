@@ -1,4 +1,4 @@
-var countryConvert = {"USA" : "us", "FRA":"europeanunion", "IND":"in"}
+var countryConvert = {"USA" : "us", "FRA":"europeanunion", "IND":"in", "CHN" : "cn"}
 
 httpGetAsync();
 
