@@ -1,5 +1,5 @@
 'use strict';
-var countryConvert = {"USA" : "us", "FRA":"europeanunion", "IND":"in", "CHN" : "cn"}
+var countryConvert = {"USA" : "us", "FRA":"europeanunion", "IND":"in", "CHN" : "cn", "KAZ" : "ru"}
 
 httpGetAsync();
 
@@ -26,7 +26,7 @@ function printLaunches(launchArray)
     for(var i = 0; i < launchArray.length; i++)
     {
         var lobj = launchArray[i];
-        // console.log(lobj);
+        console.log(lobj);
         var deadline = 0;
         var deadline_str = "";
         // Check if a net time is known for the launch. If this is not
