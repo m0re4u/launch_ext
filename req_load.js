@@ -1,5 +1,5 @@
 'use strict';
-var countryConvert = {"USA" : "us", "FRA":"europeanunion", "IND":"in", "CHN" : "cn", "KAZ" : "ru"}
+var countryConvert = {"USA" : "us", "FRA":"europeanunion", "IND":"in", "CHN" : "cn", "KAZ" : "ru", "RUS" : "ru"}
 
 httpGetAsync();
 
@@ -41,12 +41,16 @@ function printLaunches(launchArray)
         document.getElementById("zlaunch" + i).innerHTML = insertCountryFlag(lobj.location.countryCode) + "&ensp;" + lobj.name;
 
         // Get a link to stream if available
-        if (lobj.vidURL != null && lobj.vidURL != "")
+        // console.log(document.getElementById("lbutton" + i));
+        if (lobj.vidURL != null && lobj.vidURL != "" /*&& document.getElementById("lbutton" + i) != null*/)
         {
             document.getElementById("wlaunch" + i).innerHTML = deadline_str + "</a><span id=\"cdown" + i + "\"></span>";
             var url = addHTTP(lobj.vidURL);
-            document.getElementById("lbutton" + i).href = url;
-            document.getElementById("lbutton" + i).target = "_blank";
+            console.log(document.getElementById("lbutton" + i));
+            if (document.getElementById("lbutton" + i) != null) {
+                document.getElementById("lbutton" + i).href = url;
+                document.getElementById("lbutton" + i).target = "_blank";
+            }
             document.getElementById("wlaunch" + i).innerHTML.replace(' ', '/');  // #NoProblemo
             getTimeRemaining(deadline, i);
         } else {
