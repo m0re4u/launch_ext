@@ -1,5 +1,5 @@
 'use strict';
-var countryConvert = {"USA" : "us", "FRA":"europeanunion", "GUF":"europeanunion", "IND":"in", "CHN" : "cn", "KAZ" : "ru", "RUS" : "ru"}
+var countryConvert = {"USA" : "us", "FRA":"europeanunion", "GUF":"europeanunion", "IND":"in", "CHN" : "cn", "KAZ" : "kz", "RUS" : "ru", "NZL": "nz"}
 
 httpGetAsync();
 
