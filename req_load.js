@@ -102,6 +102,6 @@ function insertCountryFlag(countryAbbrev){
     if(countryAbbrev in countryConvert){
         return "<img src=\"flags/" + countryConvert[countryAbbrev] + ".png\">";
     } else {
-        return "";
+        return "<img src=\"flags/question_mark.png\">";
     }
 }
