@@ -42,10 +42,14 @@ function printLaunches(launchArray)
 
         // Get a link to stream if available
         // console.log(document.getElementById("lbutton" + i));
-        if (lobj.vidURL != null && lobj.vidURL != "" /*&& document.getElementById("lbutton" + i) != null*/)
+        if ((lobj.vidURL != null && lobj.vidURL != "") || (lobj.vidURLs != null && lobj.vidURLs[0] != ""))
         {
             document.getElementById("wlaunch" + i).innerHTML = deadline_str + "</a><span id=\"cdown" + i + "\"></span>";
-            var url = addHTTP(lobj.vidURL);
+            if (lobj.vidURL != null && lobj.vidURL != "") {
+              var url = addHTTP(lobj.vidURL);
+            } else {
+              var url = addHTTP(lobj.vidURLs[0]);
+            }
             console.log(document.getElementById("lbutton" + i));
             if (document.getElementById("lbutton" + i) != null) {
                 document.getElementById("lbutton" + i).href = url;
