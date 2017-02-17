@@ -12,9 +12,12 @@ function httpGetAsync()
             var data = JSON.parse(xmlHttp.responseText);
         if (data)
         {
-            document.getElementById("launch_header").innerHTML = "<b>Loaded " + data.count + " launches:</b>";
+            $("#launch_header").html("<b>Loaded " + data.count + " launches:</b>");
             printLaunches(data.launches);
-            setInterval(function(){updateCountdown(data.launches);}, 1000)
+            // Countdown to launch
+            setInterval(function(){
+                updateCountdown(data.launches);
+              }, 1000)
         }
     }
     xmlHttp.open("GET", url, true); // true for asynchronous
@@ -38,29 +41,22 @@ function printLaunches(launchArray)
             deadline_str = "TBD";
         }
         // Print country flag and the name of the launch
-        document.getElementById("zlaunch" + i).innerHTML = insertCountryFlag(lobj.location.countryCode) + "&ensp;" + lobj.name;
-
+        $("#zlaunch" + i).html(insertCountryFlag(lobj.location.countryCode) + "&ensp;" + lobj.name);
         // Get a link to stream if available
-        // console.log(document.getElementById("lbutton" + i));
         if ((lobj.vidURL != null && lobj.vidURL != "") || (lobj.vidURLs != null && lobj.vidURLs[0] != ""))
         {
-            document.getElementById("wlaunch" + i).innerHTML = deadline_str + "</a><span id=\"cdown" + i + "\"></span>";
-            if (lobj.vidURL != null && lobj.vidURL != "") {
-              var url = addHTTP(lobj.vidURL);
-            } else {
-              var url = addHTTP(lobj.vidURLs[0]);
+            $("#wlaunch" + i).html(deadline_str + "</a><span id=\"cdown" + i + "\"></span>");
+            var stream;
+            // Just check if the vidURL is not null since we checked if its not an empty string earlier
+            (lobj.vidURL != null) ? stream = addHTTP(lobj.vidURL) : stream = addHTTP(lobj.vidURLs[0])
+            if ( $("#lbutton" + i).length ) {
+                $("#lbutton" + i).attr("href", stream);
+                $("#lbutton" + i).attr("target", "_blank");
             }
-            console.log(document.getElementById("lbutton" + i));
-            if (document.getElementById("lbutton" + i) != null) {
-                document.getElementById("lbutton" + i).href = url;
-                document.getElementById("lbutton" + i).target = "_blank";
-            }
-            document.getElementById("wlaunch" + i).innerHTML.replace(' ', '/');  // #NoProblemo
-            getTimeRemaining(deadline, i);
         } else {
-            document.getElementById("wlaunch" + i).innerHTML = deadline_str + "</span><span id=\"cdown" + i + "\"></span>";
-            getTimeRemaining(deadline, i);
+            $("#wlaunch" + i).html(deadline_str + "</span><span id=\"cdown" + i + "\"></span>");
         }
+        getTimeRemaining(deadline, i);
     }
 }
 
@@ -92,7 +88,7 @@ function getTimeRemaining(endtime, i){
         seconds = ('0' + seconds).slice(-2);
         minutes = ('0' + minutes).slice(-2);
         var clockString = "" + hours + ":" + minutes + ":" + seconds;
-        document.getElementById("cdown" + i).innerHTML = clockString;
+        $("#cdown" + i).html(clockString);
     }
 }
 
