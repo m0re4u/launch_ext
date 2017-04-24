@@ -43,7 +43,7 @@ function printLaunches(launchArray)
         // Print country flag and the name of the launch
         $("#zlaunch" + i).html(insertCountryFlag(lobj.location.countryCode) + "&ensp;" + lobj.name);
         // Get a link to stream if available
-        if ((lobj.vidURL != null && lobj.vidURL != "") || (lobj.vidURLs != null && lobj.vidURLs[0] != ""))
+        if ((lobj.vidURL != null && lobj.vidURL != "") || (lobj.vidURLs != null && lobj.vidURLs.length > 0))
         {
             $("#wlaunch" + i).html(deadline_str + "</a><span id=\"cdown" + i + "\"></span>");
             var stream;
