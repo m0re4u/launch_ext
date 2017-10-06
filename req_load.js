@@ -5,7 +5,7 @@ httpGetAsync();
 
 function httpGetAsync()
 {
-    var url = "https://launchlibrary.net/1.1/launch/next/5";
+    var url = "https://launchlibrary.net/1.2/launch/next/5";
     var xmlHttp = new XMLHttpRequest();
     xmlHttp.onreadystatechange = function() {
         if (xmlHttp.readyState == 4 && xmlHttp.status == 200)
