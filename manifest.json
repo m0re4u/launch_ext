@@ -11,7 +11,7 @@
     "default_title": "Show launches!"
   },
   "permissions": [
-      "http://launchlibrary.net/",
+      "https://ll.thespacedevs.com/",
       "notifications"
   ],
   "icons": {

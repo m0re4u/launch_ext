@@ -5,19 +5,19 @@ httpGetAsync();
 
 function httpGetAsync()
 {
-    var url = "https://launchlibrary.net/1.2/launch/next/5";
+    var url = "https://ll.thespacedevs.com/2.0.0/launch/upcoming/?limit=5";
     var xmlHttp = new XMLHttpRequest();
     xmlHttp.onreadystatechange = function() {
         if (xmlHttp.readyState == 4 && xmlHttp.status == 200)
             var data = JSON.parse(xmlHttp.responseText);
         if (data)
         {
-            $("#launch_header").html("<b>Loaded " + data.count + " launches:</b>");
-            printLaunches(data.launches);
+            $("#launch_header").html("<b>Loaded " + data.results.length + " launches:</b>");
+            printLaunches(data.results);
             // Countdown to launch
-            setInterval(function(){
-                updateCountdown(data.launches);
-              }, 1000)
+            // setInterval(function(){
+            //     updateCountdown(data.launches);
+            //   }, 1000)
         }
     }
     xmlHttp.open("GET", url, true); // true for asynchronous
@@ -35,20 +35,19 @@ function printLaunches(launchArray)
         // Check if a net time is known for the launch. If this is not
         // available, show a TBD.
         if (lobj.netstamp != 0){
-            deadline = lobj.netstamp;
+            deadline = lobj.net;
             deadline_str = "T-0: <a id=\"lbutton" + i + "\">" + lobj.net;
         } else {
             deadline_str = "TBD";
         }
         // Print country flag and the name of the launch
-        $("#zlaunch" + i).html(insertCountryFlag(lobj.location.countryCode) + "&ensp;" + lobj.name);
+        $("#zlaunch" + i).html(insertCountryFlag(lobj.pad.location.country_code) + "&ensp;" + lobj.name);
         // Get a link to stream if available
-        if ((lobj.vidURL != null && lobj.vidURL != "") || (lobj.vidURLs != null && lobj.vidURLs.length > 0))
-        {
+        if (lobj.url != null && lobj.url != "") {
             $("#wlaunch" + i).html(deadline_str + "</a><span id=\"cdown" + i + "\"></span>");
             var stream;
             // Just check if the vidURL is not null since we checked if its not an empty string earlier
-            (lobj.vidURL != null) ? stream = addHTTP(lobj.vidURL) : stream = addHTTP(lobj.vidURLs[0])
+            (lobj.url != null) ? stream = addHTTP(lobj.url) : stream = addHTTP(lobj.urls[0])
             if ( $("#lbutton" + i).length ) {
                 $("#lbutton" + i).attr("href", stream);
                 $("#lbutton" + i).attr("target", "_blank");
@@ -56,7 +55,7 @@ function printLaunches(launchArray)
         } else {
             $("#wlaunch" + i).html(deadline_str + "</span><span id=\"cdown" + i + "\"></span>");
         }
-        getTimeRemaining(deadline, i);
+        // getTimeRemaining(deadline, i);
     }
 }
 
